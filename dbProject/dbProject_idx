@@ -1,0 +1,33 @@
+JDBC : dbProject 프로젝트 순서
+
+1. db.day1 패키지
+	1) JDBCConnectTest.java			: jdbc 이용하여 오라클 데이터베이스에 연결
+	2) OracleConnectUtil.java		: 오라클데이터베이스 연결/종료를 위한 util 클래스
+	3) InsertTest.java				: insert 쿼리 실행 - 저장할 값은 리터럴 상수로 실행
+	4) InsertTest2.java				: insert 쿼리 실행 - 저장할 값은 매개변수 '?'로 키보드입력 실행
+	5) SelectTest.java				: select 쿼리 실행 - rs.next() 메소드 테스트
+	5) SelectTest2.java				: select 쿼리 실행 - 테이블의 모든 행을 가져와서 출력하기
+	5) SelectTest3.java				: select 쿼리 실행 - where 조건식 값을 키보드 입력으로 실행
+	
+	
+2. db.day2 패키지
+	1) VOClassTest.java				: db.vo 패키지의 Custom 클래스를 이용하여 select 결과를 자바변수에 저장
+	2) IDCheckInsert.java			: insert 쿼리의 기본키 제약조건을 검사 -> custom_id 중복검사 메소드 만들기
+	3) SelectDistinct.java			: distinct 키워드 사용하는 select 조회 -> 결과를 List에 저장
+									: 프로그램 실행중에 list를 이용할 때에는 select한 테이블의 내용 변경이 없을때 사용
+	4) UpdateTest.java				: update sql 실행
+	5) DeleteTest.java				: delete sql 실행								
+	
+	
+3. db.day3 패키지
+	1) Data Access Object : DML 쿼리 실행하는 메소드가 모여있는 클래스
+		ㄴ Select는 여러가지 목적으로 다양한 쿼리가 나올수 있으면 각각의 메소드를 따로 만듭니다.
+	2) dao 클래스는 싱글턴 패턴으로 만듭니다.
+	참고 : 소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, **생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 
+			하나**이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다.
+			이와 같은 디자인 유형을 싱글턴 패턴이라고 한다.
+			주로 공통된 객체를 여러개 생성해서 사용하는 **DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.**
+		
+	3) ProductDao 클래스 연습
+		a) Product.java를 db.vo 패키지에 만드세요.
+		b) insert, update(상품이름, 가격, 카테고리), delete, selectAll, selectOne, selectCategory 메소드 만드세요.
